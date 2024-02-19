@@ -1,13 +1,15 @@
 pipeline {
-  agent any
-  stages {
-    stage('build') {
-      steps {
+    agent {
         docker {
-          image 'maven:3.9.6-eclipse-temurin-17-alpine'
-          args 'mvn package'
+            image 'maven:3.9.3-eclipse-temurin-17'
+            args '-v $HOME/.m2:/root/.m2'
         }
-      }
     }
-  }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn -B'
+            }
+        }
+    }
 }
