@@ -4,12 +4,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'mvn package' // Assuming you have Maven installed on the agent
+                bat 'mvn.cmd package' // Assuming you have Maven installed on the agent
             }
         }
         stage('Post-Build') {
             steps {
-                // Assuming the generated artifact is in target/hello-world.jar
                 archiveArtifacts 'target/demo-0.0.1-SNAPSHOT.jar'
             }
         }
