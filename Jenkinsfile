@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn package' // Assuming you have Maven installed on the agent
+                bat 'mvn package' // Assuming you have Maven installed on the agent
             }
         }
         stage('Post-Build') {
