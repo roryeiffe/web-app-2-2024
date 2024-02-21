@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'C:/apache-maven-3.8.6-bin/apache-maven-3.8.6/bin/mvn.cmd package' // Assuming you have Maven installed on the agent
+                sh 'C:/apache-maven-3.8.6-bin/apache-maven-3.8.6/bin/mvn.cmd package' // Assuming you have Maven installed on the agent
             }
         }
         stage('Post-Build') {
