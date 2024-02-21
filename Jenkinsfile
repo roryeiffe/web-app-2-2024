@@ -1,15 +1,9 @@
 pipeline {
-    agent any // This allows any available Jenkins agent to run the job
-
+    agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                sh 'mvn package' // Assuming you have Maven installed on the agent
-            }
-        }
-        stage('Post-Build') {
-            steps {
-                archiveArtifacts 'target/demo-0.0.1-SNAPSHOT.jar'
+                sh 'mvn --version'
             }
         }
     }
