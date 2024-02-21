@@ -1,15 +1,10 @@
 pipeline {
     agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'mvn package'
+                sh 'mvn --version'
             }
-        }
-        stage('Post-Build') {
-          steps {
-            archiveArtifacts 'target/demo-0.0.1-SNAPSHOT.jar'
-          }
         }
     }
 }
