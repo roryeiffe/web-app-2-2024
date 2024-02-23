@@ -1,5 +1,8 @@
 pipeline {
-    agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
+    docker {
+      image 'maven:3.9.6-eclipse-temurin-17-alpine'
+      networkMode 'bridge' // Add network mode
+    }
     stages {
         stage('Build') {
             steps {
