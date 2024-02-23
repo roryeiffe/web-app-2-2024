@@ -2,6 +2,7 @@ pipeline {
    agent {
     docker {
       image 'maven:3.9.6-eclipse-temurin-17-alpine'
+      dns ['8.8.8.8', '8.8.4.4']
     }
   }
     stages {
